@@ -1,3 +1,4 @@
+'use client'
 import * as THREE from 'three'
 import { useEffect } from 'react'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
