@@ -96,9 +96,10 @@ export default function Home() {
           />
           <div style={{ color: 'white' }}>
             <p>
-              Hi, I'm <span className='theme-point-font-color'>Eclipse</span>
+              Hi, I&apos; m
+              <span className='theme-point-font-color'>Eclipse</span>
             </p>
-            <p>Don't forget to be happy</p>
+            <p>Don&apos;t forget to be happy</p>
           </div>
         </div>
       </header>
