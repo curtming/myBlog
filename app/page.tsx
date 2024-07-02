@@ -1,7 +1,7 @@
-// app目录下的组件默认都是server side的， 但onChange是需要在Client Side处理的也就是在浏览器上处理，所以需要声明组件是client side的
 'use client'
+// app目录下的组件默认都是server side的， 但onChange是需要在Client Side处理的也就是在浏览器上处理，所以需要声明组件是client side的
 
-import { Avatar, FloatButton, Dropdown, Card, List } from 'antd'
+import { Avatar, FloatButton, Dropdown, Card, List, Button } from 'antd'
 import {
   AntDesignOutlined,
   MenuUnfoldOutlined,
@@ -11,7 +11,12 @@ import type { MenuProps } from 'antd'
 import React, { useState, useRef, useEffect } from 'react'
 import Heartbeat from './components/heartbeat/page'
 import { FloatButtonElement } from 'antd/es/float-button/interface'
+// ！useRouter 新版本必须从navigation导入，之前从router导入
+import { useRouter } from 'next/navigation'
+
 export default function Home() {
+  const router = useRouter()
+
   const items: MenuProps['items'] = [
     {
       key: '1',
@@ -87,6 +92,9 @@ export default function Home() {
           ref={floatBtnRef}
         />
       </Dropdown>
+      <div>
+        <Button onClick={() => router.push('/login')}>Login</Button>
+      </div>
       <header className='flex items-center justify-center header-wrapper'>
         <Heartbeat />
         <div className='avatar-wrapper'>
