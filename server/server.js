@@ -1,7 +1,8 @@
-// require('dotenv').config({ path: '../.env.development' })
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../.env.development') });
-console.log('Current directory:', process.cwd());
+const path = require('path')
+require('dotenv').config({
+  path: path.resolve(__dirname, '../.env.development')
+})
+console.log('Current directory:', process.cwd())
 
 console.log('Starting', process.env.NODE_ENV, process.env.MYSQL_HOST)
 const next = require('next')
@@ -14,7 +15,8 @@ var debug = require('debug')
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
-const userRoutes = require('./routes/user') // 导入用户路由模块
+const Routes = require('./routes/index') // 导入路由模块
+console.log('Routes', Routes)
 
 var httpServer
 
@@ -31,10 +33,10 @@ app.prepare().then(() => {
   server.use(express.static(path.join(__dirname, 'public'))) //获取静态文件夹路径
 
   // Example custom API route
-  server.get('/api/hello', (req, res) => {
-    res.json({ message: 'Hello from the server!' })
+  Routes.routeLists.forEach((v) => {
+    console.log(`/api/${v}`, `${v}Routes`)
+    server.use(`/api/${v}`, Routes.routes[`${v}Routes`])
   })
-  server.use('/api/user', userRoutes)
   // Default next.js handler for all other routes
   // 可以确保所有请求都经过 Next.js 的处理，避免出现 "Cannot GET /" 或 404 错误，确保单页应用（SPA）的路由正常工作。
   server.all('*', (req, res) => {

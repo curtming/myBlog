@@ -5,9 +5,6 @@ const httpResponse = require('../../../utils/http-response')
 // const { APP_ID, APP_SECRET } = require('../../../config/env')
 const bcrypt = require('bcryptjs')
 
-// const myPlaintextPassword = 'curtBlog'; // 明文密码
-// const salt = bcrypt.genSaltSync(saltRounds); // 生成盐值
-
 class userService {
   /*
    * 用户注册
@@ -47,12 +44,12 @@ class userService {
       let userRes = await mysqlConnect('user').where('username', body.username)
       const user = userRes[0] ?? userRes
       let resData
-      console.log(
-        '=====',
-        user,
-        body.password,
-        bcrypt.hashSync(body.password, 10)
-      )
+      // console.log(
+      //   '=====',
+      //   user,
+      //   body.password,
+      //   bcrypt.hashSync(body.password, 10)
+      // )
 
       if (!user) {
         resData = httpResponse(user.username, 'Invalid username')
