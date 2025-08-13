@@ -18,6 +18,8 @@
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom,
       transparent,
@@ -38,6 +40,8 @@ body {
   width: 100vw;
   height: 60vh;
   margin-bottom: 3vh;
+
+
 }
 
 .avatar-wrapper {

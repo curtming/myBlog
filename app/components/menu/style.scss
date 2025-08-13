@@ -1,0 +1,26 @@
+.menu-wrapper {
+    z-index: 100;
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
+
+
+    .menu-btn {
+        color: #ffffff;
+        font-size: 18px;
+
+        &:hover {
+            color: rgb(206 107 215 / 88%) !important;
+        }
+    }
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+}

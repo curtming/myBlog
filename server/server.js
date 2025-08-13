@@ -16,7 +16,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const Routes = require('./routes/index') // 导入路由模块
-console.log('Routes', Routes)
+// console.log('Routes', Routes)
 
 var httpServer
 
